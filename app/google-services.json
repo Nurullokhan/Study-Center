@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469747073921",
+    "project_id": "study-center-22875",
+    "storage_bucket": "study-center-22875.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469747073921:android:11c1d23b393aebc1af5e80",
+        "android_client_info": {
+          "package_name": "uz.zeeco.studycenter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM5P_Ooj32XN6RC2GiMW7WFkQkOP3ucRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

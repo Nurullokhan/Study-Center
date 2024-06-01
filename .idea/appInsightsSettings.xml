@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="uz.zeeco.studycenter" />
+                  <option name="mobileSdkAppId" value="1:469747073921:android:11c1d23b393aebc1af5e80" />
+                  <option name="projectId" value="study-center-22875" />
+                  <option name="projectNumber" value="469747073921" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
