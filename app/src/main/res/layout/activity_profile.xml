@@ -5,431 +5,507 @@
     android:id="@+id/profile_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#18DFF8"
+    android:background="#E6E6E6"
+
     tools:context=".ProfileActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_liner"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="300dp"
         android:background="@drawable/profile_style"
-        android:backgroundTint="#2199F8"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <FrameLayout
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/logo_style"
-            android:backgroundTint="@color/material_dynamic_neutral95"
-
-            >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/todo"
-                android:padding="14dp"
-                android:src="@drawable/user" />
-
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:text="@string/nurulloxon"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/surname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:text="@string/kenjaxo_jayev"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="15dp"
-        android:gravity="center|top"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/profile_picture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/logo_style"
+        android:backgroundTint="@color/material_dynamic_neutral95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_liner"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            android:padding="14dp"
+            android:src="@drawable/user" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/name_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_picture">
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/nurulloxon"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/kenjaxo_jayev"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/informations_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/information_style"
+        android:gravity="center"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+
 
         >
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/age_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="@string/age"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/age"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/_20"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/_20"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/age_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/age_layout" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/gender"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/male"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/phone_1"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/phone_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/_998907804240"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/phone_2"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/phone_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/_998910446710"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/course_id"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/course_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/_123"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/course_level"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/course_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/beginner"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/course_days"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/course_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/dush_chor_juma"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/status"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/o_qishni_boshladi"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/group_id"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/group_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/_321"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/marketing"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/marketing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/tanishlar"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/contract"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/contract"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:gravity="center"
-                android:text="@string/tuzilgan"
-                android:textColor="@color/category_color"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-        <androidx.cardview.widget.CardView
+        <View
+            android:id="@+id/view_1"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="16dp"
-            android:id="@+id/return_to_home"
-            android:backgroundTint="#2199F8"
-            app:cardCornerRadius="6dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/return_to_home"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:layout_gravity="center"
-                android:textStyle="bold"/>
-        </androidx.cardview.widget.CardView>
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@id/gender_layout"
+            app:layout_constraintTop_toBottomOf="@id/age_layout" />
+
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_margin="10dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/phone_1_layout"
+            app:layout_constraintTop_toBottomOf="@id/gender_layout" />
+
+        <View
+            android:id="@+id/view_3"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_margin="10dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/phone_2_layout"
+            app:layout_constraintTop_toBottomOf="@id/phone_1_layout" />
+
+        <View
+            android:id="@+id/view_4"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/course_layout"
+            app:layout_constraintTop_toBottomOf="@id/phone_2_layout" />
+
+        <View
+            android:id="@+id/view_5"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/level_layout"
+            app:layout_constraintTop_toBottomOf="@id/course_layout" />
+
+        <View
+            android:layout_margin="10dp"
+            android:id="@+id/view_6"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/course_day_layout"
+            app:layout_constraintTop_toBottomOf="@id/level_layout" />
+
+        <View
+            android:layout_margin="10dp"
+            android:id="@+id/view_7"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/status_layout"
+            app:layout_constraintTop_toBottomOf="@id/course_day_layout" />
+
+        <View
+            android:id="@+id/view_8"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/group_layout"
+            app:layout_constraintTop_toBottomOf="@id/status_layout" />
+
+        <View
+            android:id="@+id/view_9"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/marketing_layout"
+            app:layout_constraintTop_toBottomOf="@id/group_layout" />
+
+        <View
+            android:id="@+id/view_10"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/category_color"
+            app:layout_constraintBottom_toTopOf="@id/contract_layout"
+            app:layout_constraintTop_toBottomOf="@id/marketing_layout" />
+
+        <TextView
+            android:id="@+id/gender_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/gender"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_2"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/male"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/gender_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gender_layout" />
 
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/phone_1_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/phone_1"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+        <TextView
+            android:id="@+id/phone_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/_998907804240"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/phone_1_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone_1_layout" />
+
+
+        <TextView
+            android:id="@+id/phone_2_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/phone_2"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_3" />
+
+        <TextView
+            android:id="@+id/phone_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+
+            android:text="@string/_998910446710"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/phone_2_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone_2_layout" />
+
+
+        <TextView
+            android:id="@+id/course_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/course_id"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_4" />
+
+        <TextView
+            android:id="@+id/course_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/_123"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/course_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/course_layout" />
+
+
+        <TextView
+            android:id="@+id/level_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/course_level"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_5" />
+
+        <TextView
+            android:id="@+id/course_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/beginner"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/level_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/level_layout" />
+
+
+        <TextView
+            android:id="@+id/course_day_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/course_days"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_7"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_6" />
+
+        <TextView
+            android:id="@+id/course_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/dush_chor_juma"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/course_day_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/course_day_layout" />
+
+
+        <TextView
+            android:id="@+id/status_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/status"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_7" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/o_qishni_boshladi"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/status_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/status_layout" />
+
+
+        <TextView
+            android:id="@+id/group_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/group_id"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_8" />
+
+        <TextView
+            android:id="@+id/group_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/_321"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/group_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/group_layout" />
+
+
+        <TextView
+            android:id="@+id/marketing_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/marketing"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_9" />
+
+        <TextView
+            android:id="@+id/marketing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/tanishlar"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/marketing_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/marketing_layout" />
+
+
+        <TextView
+            android:id="@+id/contract_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/contract"
+            android:textColor="@color/detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_10" />
+
+        <TextView
+            android:id="@+id/contract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/tuzilgan"
+            android:textColor="@color/category_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/contract_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/contract_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
