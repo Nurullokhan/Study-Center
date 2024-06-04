@@ -33,11 +33,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
             android:contentDescription="@string/todo"
-            android:padding="14dp"
-            android:src="@drawable/user" />
+
+            android:src="@drawable/profile_one" />
 
     </FrameLayout>
 
@@ -105,7 +106,7 @@
             android:text="@string/age"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -128,7 +129,7 @@
             android:id="@+id/view_1"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             android:layout_margin="10dp"
             app:layout_constraintBottom_toTopOf="@id/gender_layout"
             app:layout_constraintTop_toBottomOf="@id/age_layout" />
@@ -138,7 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
             android:layout_margin="10dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/phone_1_layout"
             app:layout_constraintTop_toBottomOf="@id/gender_layout" />
 
@@ -147,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
             android:layout_margin="10dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/phone_2_layout"
             app:layout_constraintTop_toBottomOf="@id/phone_1_layout" />
 
@@ -156,7 +157,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/course_layout"
             app:layout_constraintTop_toBottomOf="@id/phone_2_layout" />
 
@@ -165,7 +166,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/level_layout"
             app:layout_constraintTop_toBottomOf="@id/course_layout" />
 
@@ -174,7 +175,7 @@
             android:id="@+id/view_6"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/course_day_layout"
             app:layout_constraintTop_toBottomOf="@id/level_layout" />
 
@@ -183,7 +184,7 @@
             android:id="@+id/view_7"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/status_layout"
             app:layout_constraintTop_toBottomOf="@id/course_day_layout" />
 
@@ -192,7 +193,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/group_layout"
             app:layout_constraintTop_toBottomOf="@id/status_layout" />
 
@@ -201,7 +202,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/marketing_layout"
             app:layout_constraintTop_toBottomOf="@id/group_layout" />
 
@@ -210,7 +211,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/category_color"
+            android:background="@color/view_color"
             app:layout_constraintBottom_toTopOf="@id/contract_layout"
             app:layout_constraintTop_toBottomOf="@id/marketing_layout" />
 
@@ -223,7 +224,7 @@
             android:text="@string/gender"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/view_2"
             app:layout_constraintLeft_toLeftOf="parent"
 
@@ -253,7 +254,7 @@
             android:text="@string/phone_1"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_2" />
@@ -282,7 +283,7 @@
             android:text="@string/phone_2"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_4"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_3" />
@@ -312,7 +313,7 @@
             android:text="@string/course_id"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_4" />
@@ -341,7 +342,7 @@
             android:text="@string/course_level"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_6"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_5" />
@@ -370,7 +371,7 @@
             android:text="@string/course_days"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_7"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_6" />
@@ -399,7 +400,7 @@
             android:text="@string/status"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_8"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_7" />
@@ -428,7 +429,7 @@
             android:text="@string/group_id"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@id/view_9"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_8" />
@@ -457,7 +458,6 @@
             android:text="@string/marketing"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/view_10"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_9" />
@@ -487,7 +487,7 @@
             android:text="@string/contract"
             android:textColor="@color/detail"
             android:textSize="22sp"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_10" />
