@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -23,39 +22,41 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.messaging.FirebaseMessaging
+import uz.zeeco.studycenter.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-    lateinit var auth: FirebaseAuth
-    lateinit var storedVerificationId:String
+    private lateinit var auth: FirebaseAuth
+    lateinit var storedVerificationId: String
     lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var binding: ActivityMainBinding
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        auth=FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
         requestPermission()
 
 //        Reference
-        val Login=findViewById<Button>(R.id.loginBtn)
 
 
-        var currentUser = auth.currentUser
-        if(currentUser != null) {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
             startActivity(Intent(applicationContext, HomeActivity::class.java))
             finish()
         }
 
-        Login.setOnClickListener{
+        binding.loginBtn.setOnClickListener {
             login()
         }
 
@@ -73,15 +74,15 @@ class MainActivity : AppCompatActivity() {
 
             override fun onCodeSent(
                 verificationId: String,
-                token: PhoneAuthProvider.ForceResendingToken
+                token: PhoneAuthProvider.ForceResendingToken,
             ) {
 
-                Log.d("TAG","onCodeSent:$verificationId")
+                Log.d("TAG", "onCodeSent:$verificationId")
                 storedVerificationId = verificationId
                 resendToken = token
 
-                var intent = Intent(applicationContext,VerifyActivity::class.java)
-                intent.putExtra("storedVerificationId",storedVerificationId)
+                val intent = Intent(applicationContext, VerifyActivity::class.java)
+                intent.putExtra("storedVerificationId", storedVerificationId)
                 startActivity(intent)
             }
         }
@@ -89,17 +90,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        val mobileNumber=findViewById<EditText>(R.id.phoneNumber)
-        var number=mobileNumber.text.toString().trim()
+        val mobileNumber = findViewById<EditText>(R.id.phoneNumber)
+        var number = mobileNumber.text.toString().trim()
 
-        if(number.isNotEmpty()){
-            number= "+998$number"
-            sendVerificationcode (number)
-        }else{
-            Toast.makeText(this,"Enter mobile number",Toast.LENGTH_SHORT).show()
+        if (number.isNotEmpty()) {
+            number = "+998$number"
+            sendVerificationcode(number)
+        } else {
+            Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
         }
     }
-    fun requestPermission() {
+
+    private fun requestPermission() {
         // This is only necessary for API level >= 33 (TIRAMISU)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
@@ -130,13 +132,18 @@ class MainActivity : AppCompatActivity() {
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
+
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { isGranted: Boolean ->
         if (isGranted) {
             FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
-                    Log.w(ContentValues.TAG, "Fetching FCM registration token failed", task.exception)
+                    Log.w(
+                        ContentValues.TAG,
+                        "Fetching FCM registration token failed",
+                        task.exception
+                    )
                     return@OnCompleteListener
                 }
 
