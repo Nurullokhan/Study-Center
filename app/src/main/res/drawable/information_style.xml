@@ -6,12 +6,12 @@
         android:radius="18dp"
         />
    <solid
-<<<<<<< HEAD
+
        android:color="#FFFFFF"/>
-=======
-       android:color="#FFFFFF"
-       />
->>>>>>> 397bc88 (Create)
+
+
+
+
 
 
 

@@ -18,8 +18,10 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".PorfileActivity"
+            android:name=".MainActivity"
             android:exported="false" />
+
+
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -29,10 +31,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".VerifyActivity" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
