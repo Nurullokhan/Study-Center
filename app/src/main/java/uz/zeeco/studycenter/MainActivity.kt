@@ -50,15 +50,56 @@ class MainActivity : AppCompatActivity() {
 //        Reference
 
 
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(applicationContext, HomeActivity::class.java))
+            finish()
+        }
 
+        binding.loginBtn.setOnClickListener {
+            login()
+        }
 
+        // Callback function for Phone Auth
+        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                startActivity(Intent(applicationContext, HomeActivity::class.java))
+                finish()
+            }
 
+            override fun onVerificationFailed(e: FirebaseException) {
+                Toast.makeText(applicationContext, "Failed", Toast.LENGTH_LONG).show()
+            }
 
+            override fun onCodeSent(
+                verificationId: String,
+                token: PhoneAuthProvider.ForceResendingToken,
+            ) {
+
+                Log.d("TAG", "onCodeSent:$verificationId")
+                storedVerificationId = verificationId
+                resendToken = token
+
+                val intent = Intent(applicationContext, VerifyActivity::class.java)
+                intent.putExtra("storedVerificationId", storedVerificationId)
+                startActivity(intent)
+            }
+        }
 
     }
 
+    private fun login() {
+        val mobileNumber = findViewById<EditText>(R.id.phoneNumber)
+        var number = mobileNumber.text.toString().trim()
 
+        if (number.isNotEmpty()) {
+            number = "+998$number"
+            sendVerificationcode(number)
+        } else {
+            Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private fun requestPermission() {
         // This is only necessary for API level >= 33 (TIRAMISU)
@@ -82,7 +123,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun sendVerificationcode(number: String) {
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(number) // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(this) // Activity (for callback binding)
+            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
+    }
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),

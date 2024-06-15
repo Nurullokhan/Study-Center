@@ -19,12 +19,10 @@ firebaseInappmessagingDisplay = "21.0.0"
 multidex = "1.0.3"
 pin_view = "1.4.4"
 pinview = "1.4.3"
-retrofit = "2.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 chaosleung-pinview = { module = "io.github.chaosleung:pinview", version.ref = "pin_view" }
-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -41,7 +39,6 @@ firebase-inappmessaging-display = { group = "com.google.firebase", name = "fireb
 multidex = { module = "com.android.support:multidex", version.ref = "multidex" }
 pin_view = { module = "io.github.chaosleung:pin view", version.ref = "pin_view" }
 pinview = { module = "com.chaos.view:pinview", version.ref = "pinview" }
-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
