@@ -52,7 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_picture">
-name,surname,age,gender,phone number1 , phone number 2,course id, level,lesson days, status, group id,marketing,contract
+
 
         <TextView
             android:id="@+id/name"
