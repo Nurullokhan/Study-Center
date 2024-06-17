@@ -13,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import uz.zeeco.studycenter.databinding.ActivityRegisterBinding
+import kotlin.math.log
 
 class RegisterActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -28,22 +29,22 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
         binding.buttonRegister.setOnClickListener {
-            val name = binding.editTextName.text.toString()
-            val surname = binding.editTextSurname.text.toString()
+            val login = binding.reLogin.text.toString()
+            val password = binding.rePassword.text.toString()
 
 
-            registerAndFetchProfile(name, surname)
+            registerAndFetchProfile(login, password)
         }
     }
 
-    private fun registerAndFetchProfile(name: String, surname: String) {
+    private fun registerAndFetchProfile(login: String, password: String) {
 
         val apiService = RetrofitClient.apiService
-        val call = apiService.readProfile(name, surname)
-        call.enqueue(object : Callback<ProfileResponse> {
+        val call = apiService.readProfile(login,password)
+        call.enqueue(object : Callback<StudentData> {
             override fun onResponse(
-                call: Call<ProfileResponse>,
-                response: Response<ProfileResponse>,
+                call: Call<StudentData>,
+                response: Response<StudentData>,
             ) {
                 if (response.isSuccessful) {
                     val profile = response.body()
@@ -64,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+            override fun onFailure(call: Call<StudentData>, t: Throwable) {
                 Toast.makeText(applicationContext, "Failure: ${t.message}", Toast.LENGTH_SHORT)
                     .show()
                 Log.e("RegisterActivity", "Failure: ${t.message}")

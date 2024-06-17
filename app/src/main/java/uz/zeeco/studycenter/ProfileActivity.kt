@@ -26,7 +26,7 @@ class ProfileActivity : AppCompatActivity() {
             insets
         }
 
-        val profile = intent.getParcelableExtra<ProfileResponse>("profile")
+        val profile = intent.getParcelableExtra<StudentData>("profile")
         profile?.let {
 
             updateProfileUI(it)
@@ -34,21 +34,23 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateProfileUI(profile: ProfileResponse) {
+    private fun updateProfileUI(profile: StudentData) {
         // Assuming you have TextViews or EditTexts in your layout
         binding.name.text = profile.name
         binding.surname.text = profile.surname
         binding.age.text = profile.age.toString()
         binding.gender.text = profile.gender
-        binding.phone1.text = profile.phoneNumber1
-        binding.phone2.text = profile.phoneNumber2
-        binding.courseId.text = profile.courseId
-        binding.courseLevel.text = profile.level
-        binding.courseDay.text = profile.lessonDays
+        binding.phone1.text = profile.phone_1
+        binding.phone2.text = profile.phone_2
+        binding.courseName.text = profile.course_name
+        binding.courseLevel.text = profile.course_level
+        binding.courseDay.text = profile.course_day
         binding.status.text = profile.status
-        binding.groupId.text = profile.groupId
-        binding.marketing.text = profile.marketing
+        binding.groupName.text = profile.group_name
+        binding.id.text = profile.id
         binding.contract.text = profile.contract
+        binding.login.text = profile.login
+        binding.password.text = profile.password
     }
 }
 

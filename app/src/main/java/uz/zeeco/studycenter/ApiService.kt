@@ -11,7 +11,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("exec/requestType=lead")
     fun readProfile(
-        @Field("name") name: String,
-        @Field("surname") surname:String
-    ): Call<ProfileResponse>
+        @Field("login") LOGIN: String,
+        @Field("password") PASSWORD:String
+    ): Call<StudentData>
 }
