@@ -10,26 +10,26 @@
     android:padding="16sp">
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/re_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:autofillHints="name"
         android:textColor="@color/black"
         android:textStyle="normal"
-        android:hint="Enter Name"
+        android:hint="Enter Login"
         android:inputType="text"/>
 
     <EditText
-        android:id="@+id/editTextSurname"
+        android:id="@+id/re_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Surname"
+        android:hint="Enter password"
         android:textSize="18sp"
         android:autofillHints="name"
         android:textColor="@color/black"
         android:textStyle="normal"
-        android:inputType="text"/>
+        android:inputType="textPassword"/>
 
 
 
@@ -37,6 +37,6 @@
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"/>
+        android:text="Login"/>
 
 </LinearLayout>
