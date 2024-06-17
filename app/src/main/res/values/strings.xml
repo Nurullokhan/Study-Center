@@ -21,7 +21,7 @@
     <string name="_998907804240">+998907804240</string>
     <string name="phone_2">Tel 2:</string>
     <string name="_998910446710">+998910446710</string>
-    <string name="course_id">Kurs Id:</string>
+    <string name="course_name">Kurs name:</string>
     <string name="_123">123</string>
     <string name="course_level">Daraja:</string>
     <string name="beginner">Boshlang\'ich</string>
@@ -30,10 +30,14 @@
     <string name="status">Holati:</string>
     <string name="o_qishni_boshladi">O\'qishni boshladi</string>
     <string name="_321">321</string>
-    <string name="group_id">Gruh Id:</string>
+    <string name="group_name">Gruh name:</string>
     <string name="marketing">Marketing:</string>
     <string name="tanishlar">Tanishlar</string>
     <string name="contract">Shartnoma:</string>
     <string name="tuzilgan">Tuzilgan</string>
     <string name="return_to_home">Return To Home</string>
+    <string name="dostonbek123456">dostonbek123456</string>
+    <string name="password">Password</string>
+    <string name="husanovdostonbek2007">husanovdostonbek2007</string>
+    <string name="id">Id</string>
 </resources>
