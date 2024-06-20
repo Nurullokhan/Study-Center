@@ -1,81 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/profile_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E6E6E6"
+package uz.zeeco.studycenter.home
 
-    tools:context=".ProfileActivity">
+import android.annotation.SuppressLint
+import android.content.ContentValues
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
+import android.util.Log
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.messaging.FirebaseMessaging
+import uz.zeeco.studycenter.atttendance.AttendanceFragment
+import uz.zeeco.studycenter.R
+import uz.zeeco.studycenter.adapters.VpAdapter
+import uz.zeeco.studycenter.databinding.ActivityMainBinding
+import uz.zeeco.studycenter.profile.ProfileFragment
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_liner"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/profile_style"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    lateinit var storedVerificationId: String
+    lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
+    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var binding: ActivityMainBinding
+
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        auth = FirebaseAuth.getInstance()
+        requestPermission()
 
 
-    <FrameLayout
-        android:id="@+id/profile_picture"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/logo_style"
-        android:backgroundTint="@color/material_dynamic_neutral95"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+//        Reference
+        binding.navView.setOnItemSelectedListener {
+            when (it) {
+                R.id.navigation_home -> replaceFragment(HomeFragment())
+                R.id.navigation_attendance -> replaceFragment(AttendanceFragment())
+                R.id.navigation_profile -> replaceFragment(ProfileFragment())
+            }
 
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/todo"
 
-            android:src="@drawable/profile_one" />
 
-    </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/name_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="6dp"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_picture">
+        }
+    }
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction=fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer,fragment)
+        fragmentTransaction.commit()
+    }
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="@string/nurulloxon"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/surname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="@string/kenjaxo_jayev"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    private fun requestPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                ) ==
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                // FCM SDK (and your app) can post notifications.
+            } else if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
+                // TODO: display an educational UI explaining to the user the features that will be enabled
+                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
+                //       If the user selects "No thanks," allow the user to continue without notifications.
+            } else {
+                // Directly ask for the permission
+                requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
 
-    </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w(
+                        ContentValues.TAG,
+                        "Fetching FCM registration token failed",
+                        task.exception
+                    )
+                    return@OnCompleteListener
+                }
+
+                // Get new FCM registration token
+                val token = task.result
+                Log.w("FirebaseLogs", " Fetching FCM registration token:$token")
+                // Log and toast
+
+            })
+            /*    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/informations_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -502,7 +541,7 @@
             android:text="@string/contract"
             android:textColor="@color/detail"
             android:textSize="20sp"
-app:layout_constraintBottom_toTopOf="@id/view_11"
+            app:layout_constraintBottom_toTopOf="@id/view_11"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_10" />
 
@@ -573,8 +612,7 @@ app:layout_constraintBottom_toTopOf="@id/view_11"
             app:layout_constraintBottom_toBottomOf="@id/password_layout"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/password_layout" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>*/
+        }
+    }
+}
