@@ -1,4 +1,4 @@
-package uz.zeeco.studycenter
+package uz.zeeco.studycenter.register
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,8 +12,12 @@ import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uz.zeeco.studycenter.R
 import uz.zeeco.studycenter.databinding.ActivityRegisterBinding
-import kotlin.math.log
+import uz.zeeco.studycenter.home.MainActivity
+import uz.zeeco.studycenter.profile.ProfileFragment
+import uz.zeeco.studycenter.profile.RetrofitClient
+import uz.zeeco.studycenter.profile.StudentData
 
 class RegisterActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -28,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.buttonRegister.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             val login = binding.reLogin.text.toString()
             val password = binding.rePassword.text.toString()
 
@@ -50,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
                     val profile = response.body()
                     profile?.let {
                         // Navigate to profile activity and pass profile data
-                        val intent = Intent(this@RegisterActivity, ProfileActivity::class.java)
+                        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
                         intent.putExtra("profile", it)
                         startActivity(intent)
                         finish()

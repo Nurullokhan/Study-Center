@@ -1,4 +1,4 @@
-package uz.zeeco.studycenter// RetrofitClient.kt
+package uz.zeeco.studycenter.profile// RetrofitClient.kt
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
