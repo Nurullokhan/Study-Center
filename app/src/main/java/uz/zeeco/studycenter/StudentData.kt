@@ -1,4 +1,4 @@
-package uz.zeeco.studycenter.profile
+package uz.zeeco.studycenter
 
 import android.os.Parcel
 import android.os.Parcelable

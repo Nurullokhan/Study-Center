@@ -1,4 +1,4 @@
-package uz.zeeco.studycenter.firebase
+package uz.zeeco.studycenter
 
 
 import android.app.NotificationChannel
@@ -12,8 +12,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import uz.zeeco.studycenter.R
-import uz.zeeco.studycenter.home.MainActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 

@@ -54,21 +54,12 @@ dependencies {
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.inappmessaging.display)
     implementation(libs.multidex)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
     implementation(libs.androidx.constraintlayout)
-    //viewpager
-    implementation (libs.androidx.viewpager2)
    // implementation (libs.pinview)
     implementation (libs.chaosleung.pinview)
-    //
-    implementation(libs.androidx.lifecycle.runtime)
-    implementation (libs.chip.navigation.bar)
-
-
 }

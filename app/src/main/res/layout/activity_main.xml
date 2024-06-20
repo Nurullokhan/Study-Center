@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4FAFF"
-    tools:context=".home.MainActivity">
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/nav_view"
-        app:defaultNavHost="true" />
+    android:background="#F9FAFF"
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context=".MainActivity">
 
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="#fff"
-        android:backgroundTint="#282828"
-        android:fadingEdge="horizontal"
-        app:cnb_menuResource="@menu/bottom_nav_menu"
-        app:cnb_unselectedColor="@android:color/white"
-        tools:ignore="MissingClass" />
-
-</RelativeLayout>
+    </LinearLayout>
