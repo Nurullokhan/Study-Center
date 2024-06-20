@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+<<<<<<< HEAD
 import uz.zeeco.studycenter.adapters.VpAdapter
 import uz.zeeco.studycenter.databinding.FragmentHomeBinding
 
@@ -24,6 +25,16 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+=======
+import uz.zeeco.studycenter.databinding.FragmentHomeBinding
+
+
+
+class HomeFragment : Fragment() {
+
+    private lateinit var binding: FragmentHomeBinding
+
+>>>>>>> 7e1a270 (Merge pull request #14 from Nurullokhan/dostonbek)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +46,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+<<<<<<< HEAD
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -53,5 +65,8 @@ class HomeFragment : Fragment() {
                 }
             }
     }
+=======
+
+>>>>>>> 7e1a270 (Merge pull request #14 from Nurullokhan/dostonbek)
 
 }
