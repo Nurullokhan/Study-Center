@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class StudentData(
-    val age: Int,
+    val age: String,
     val contract: String,
     val course_day: String,
     val course_level: String,
@@ -16,11 +16,13 @@ data class StudentData(
     val name: String,
     val password: String,
     val phone_1: String,
+    val phone_2: String,
     val status: String,
     val surname: String
 ):Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
@@ -38,7 +40,7 @@ data class StudentData(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(age)
+        parcel.writeString(age)
         parcel.writeString(contract)
         parcel.writeString(course_day)
         parcel.writeString(course_level)
@@ -50,6 +52,7 @@ data class StudentData(
         parcel.writeString(name)
         parcel.writeString(password)
         parcel.writeString(phone_1)
+        parcel.writeString(phone_2)
         parcel.writeString(status)
         parcel.writeString(surname)
     }

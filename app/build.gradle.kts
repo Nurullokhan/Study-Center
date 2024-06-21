@@ -67,10 +67,9 @@ dependencies {
    // implementation (libs.pinview)
     implementation (libs.chaosleung.pinview)
     //
-    implementation (libs.chip.navigation.bar)
     implementation(libs.androidx.lifecycle.runtime)
-    implementation (libs.logging.interceptor)
-
+    implementation (libs.chip.navigation.bar)
+    implementation(libs.volley)
 
 
 }
