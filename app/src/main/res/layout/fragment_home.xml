@@ -15,11 +15,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="Nothing "
         android:textStyle="bold"
-<<<<<<< HEAD
+
         android:textSize="22sp"/>
-=======
-        android:textSize="22sp"
-        />
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,6 @@
         android:textStyle="bold"
         android:textSize="22sp"
         />
->>>>>>> 7e1a270 (Merge pull request #14 from Nurullokhan/dostonbek)
 
 
 
