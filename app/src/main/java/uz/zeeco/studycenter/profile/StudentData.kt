@@ -16,13 +16,11 @@ data class StudentData(
     val name: String,
     val password: String,
     val phone_1: String,
-    val phone_2: String,
     val status: String,
     val surname: String
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
-        parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
@@ -52,7 +50,6 @@ data class StudentData(
         parcel.writeString(name)
         parcel.writeString(password)
         parcel.writeString(phone_1)
-        parcel.writeString(phone_2)
         parcel.writeString(status)
         parcel.writeString(surname)
     }

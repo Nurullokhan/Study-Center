@@ -36,45 +36,39 @@ class RegisterActivity : AppCompatActivity() {
             val login = binding.reLogin.text.toString()
             val password = binding.rePassword.text.toString()
 
+            val apiService = RetrofitClient.apiService
+            val call = apiService.post("lead", login, password)
+            call.enqueue(object : Callback<StudentData> {
+                override fun onResponse(
+                    call: Call<StudentData>,
+                    response: Response<StudentData>,
+                ) {
+                    if (response.isSuccessful) {
+                        val profile = response.body()
+                        profile?.let {
+                            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                            intent.putExtra("profile", it)
+                            startActivity(intent)
+                            finish()
+                        }
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            "Error: ${response.errorBody()?.string()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Log.e("RegisterActivity", "Error: ${response.errorBody()?.string()}")
+                    }
+                }
 
-            registerAndFetchProfile(login, password)
+                override fun onFailure(call: Call<StudentData>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Failure: ${t.message}", Toast.LENGTH_SHORT)
+                        .show()
+                    Log.e("RegisterActivity", "Failure: ${t.message}")
+                }
+            })
         }
     }
 
-    private fun registerAndFetchProfile(login: String, password: String) {
-
-        val apiService = RetrofitClient.apiService
-        val call = apiService.readProfile(login,password)
-        call.enqueue(object : Callback<StudentData> {
-            override fun onResponse(
-                call: Call<StudentData>,
-                response: Response<StudentData>,
-            ) {
-                if (response.isSuccessful) {
-                    val profile = response.body()
-                    profile?.let {
-                        // Navigate to profile activity and pass profile data
-                        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
-                        intent.putExtra("profile", it)
-                        startActivity(intent)
-                        finish()
-                    }
-                } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Error: ${response.errorBody()?.string()}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.e("RegisterActivity", "Error: ${response.errorBody()?.string()}")
-                }
-            }
-
-            override fun onFailure(call: Call<StudentData>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failure: ${t.message}", Toast.LENGTH_SHORT)
-                    .show()
-                Log.e("RegisterActivity", "Failure: ${t.message}")
-            }
-        })
-    }
 
 }

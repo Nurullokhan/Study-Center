@@ -13,16 +13,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.messaging.FirebaseMessaging
 import uz.zeeco.studycenter.atttendance.AttendanceFragment
 import uz.zeeco.studycenter.R
-import uz.zeeco.studycenter.adapters.VpAdapter
 import uz.zeeco.studycenter.databinding.ActivityMainBinding
 import uz.zeeco.studycenter.profile.ProfileFragment
 

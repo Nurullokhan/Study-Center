@@ -1,0 +1,107 @@
+<!-- res/layout/item_table_row.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="4"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvTeacherId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="3"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvCourseId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="4"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvGroupId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="4"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="11.02.2025"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvStudentId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="4"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvAttendanceStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Good"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvCame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="12"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Good"
+        android:textSize="14sp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tvAttendancePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="485000"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvTeacherPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="14sp"
+        android:text="285000"
+        android:gravity="center" />
+</LinearLayout>
