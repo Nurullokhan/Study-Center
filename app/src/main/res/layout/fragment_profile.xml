@@ -8,7 +8,15 @@
     tools:context=".profile.ProfileFragment">
 
 
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_liner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#133BAA"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/profile_picture"
@@ -17,9 +25,10 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/logo_style"
         android:backgroundTint="@color/material_dynamic_neutral95"
+        app:layout_constraintBottom_toBottomOf="@id/main_liner"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/main_liner">
 
         <ImageView
             android:layout_width="90dp"
@@ -66,14 +75,27 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/phone_number"
+        android:id="@+id/phone_number_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_998910446710"
         android:textColor="#9C9C9C"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginEnd="5dp"
         app:layout_constraintLeft_toLeftOf="@id/name_layout"
+        app:layout_constraintRight_toLeftOf="@id/phone_number_2"
+        app:layout_constraintTop_toBottomOf="@id/name_layout" />
+    <TextView
+        android:id="@+id/phone_number_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_998910446710"
+        android:textColor="#9C9C9C"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/phone_number_1"
         app:layout_constraintRight_toRightOf="@id/name_layout"
         app:layout_constraintTop_toBottomOf="@id/name_layout" />
 
@@ -82,13 +104,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/ma_lumoti"
         android:textColor="@color/white"
         android:textSize="22sp"
+
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phone_number" />
+        app:layout_constraintTop_toBottomOf="@id/phone_number_1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -118,11 +141,17 @@ android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:id="@+id/id"
                 android:text="@string/_123"
+                android:id="@+id/id"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_margin="4dp"
+            android:background="@color/view_color" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,8 +171,8 @@ android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:id="@+id/age"
                 android:text="@string/_20"
+                android:id="@+id/age"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -236,8 +265,8 @@ android:layout_margin="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/beginner"
-                android:textColor="@color/white"
                 android:id="@+id/level"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -266,7 +295,7 @@ android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:id="@+id/course_day"
+                android:id="@+id/days"
                 android:text="@string/dush_chor_juma"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -294,10 +323,10 @@ android:layout_margin="20dp"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
                 android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
                 android:text="@string/o_qishni_boshladi"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -329,7 +358,7 @@ android:layout_margin="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/english_1"
-                android:id="@+id/group_name"
+                android:id="@+id/groupName"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -390,9 +419,9 @@ android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:id="@+id/login"
                 android:text="@string/husanovdostonbek2007"
                 android:textColor="@color/white"
+                android:id="@+id/login"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -422,8 +451,8 @@ android:layout_margin="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/dostonbek123456"
-                android:textColor="@color/white"
                 android:id="@+id/password"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
 
